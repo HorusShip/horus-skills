@@ -4,7 +4,7 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 export const SKILLS_DIR = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-export const DEFAULT_SPEC = resolve(SKILLS_DIR, "..", "openapi", "openapi.json");
+export const DEFAULT_SPEC = resolve(SKILLS_DIR, "openapi", "openapi.json");
 
 /** Load the spec from a file path or an http(s) URL. */
 export async function loadSpec(source = DEFAULT_SPEC) {

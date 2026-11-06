@@ -69,9 +69,9 @@ Give it the MCP server if it speaks MCP. Otherwise give it the CLI with `HORUS_A
 The spec-derived references are generated, and everything is checked against the OpenAPI document:
 
 ```sh
-node skills/scripts/generate-references.mjs   # rewrite operations.md + events.md from openapi/openapi.json
-node skills/scripts/validate.mjs              # frontmatter, links, every op/tool/CLI/event name exists
-node skills/scripts/validate.mjs --coverage   # also list operations no skill mentions
+node scripts/generate-references.mjs   # rewrite operations.md + events.md from openapi/openapi.json
+node scripts/validate.mjs              # frontmatter, links, every op/tool/CLI/event name exists
+node scripts/validate.mjs --coverage   # also list operations no skill mentions
 node --test skills/scripts/scripts.test.mjs  # tests for the tooling
 ```
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Validates the Horus agent skills.
 //
-//   node skills/scripts/validate.mjs [--spec <path|url>] [--root <skills dir>] [--docs <docs dir>] [--coverage]
+//   node scripts/validate.mjs [--spec <path|url>] [--root <skills dir>] [--docs <docs dir>] [--coverage]
 //
 // Checks:
 //   1. Every skill folder has SKILL.md with valid YAML frontmatter: `name` (matches the folder,

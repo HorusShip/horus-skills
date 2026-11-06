@@ -1,0 +1,17 @@
+name: CI
+on:
+  push: { branches: [main] }
+  pull_request:
+  schedule: [{ cron: "0 6 * * *" }]   # also re-check against the live API spec daily
+permissions: { contents: read }
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node scripts/validate.mjs
+      - name: Still valid against the live spec
+        run: node scripts/validate.mjs --spec https://horusship.com/api/v1/openapi.json
+      - run: node --test scripts/scripts.test.mjs
