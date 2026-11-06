@@ -81,7 +81,8 @@ function parseFrontmatter(text) {
     return { fields, bodyLines: text.slice(m[0].length).split(/\r?\n/).length };
 }
 
-const skillDirs = readdirSync(ROOT).filter((d) => d !== "scripts" && statSync(join(ROOT, d)).isDirectory());
+const NOT_SKILLS = new Set(["scripts", "openapi", "node_modules"]);
+const skillDirs = readdirSync(ROOT).filter((d) => !d.startsWith(".") && !NOT_SKILLS.has(d) && statSync(join(ROOT, d)).isDirectory());
 for (const dir of skillDirs) {
     const file = join(ROOT, dir, "SKILL.md");
     if (!existsSync(file)) { fail(join(ROOT, dir), "missing SKILL.md"); continue; }
